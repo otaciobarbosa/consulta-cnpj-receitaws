@@ -43,7 +43,9 @@ python consultar_cnpj.py
 
 ### Modo de Produção (com seus dados)
 
-1. Coloque sua planilha Excel na pasta do projeto com o nome `CNPJ ate 60000.xlsx`
+1. Coloque sua planilha Excel na pasta do projeto com o nome `exemplo_cnpjs.xlsx`  
+### Altere para o nome desejado
+
 2. Certifique-se de que os CNPJs estão na **coluna B**
 3. Execute o script:
 
