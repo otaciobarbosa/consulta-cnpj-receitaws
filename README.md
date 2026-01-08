@@ -65,7 +65,6 @@ python gerar_exemplo.py
 ├── consultar_cnpj.py       # Script principal
 ├── gerar_exemplo.py         # Gerador de CNPJs fictícios
 ├── exemplo_cnpjs.xlsx       # Arquivo de exemplo (incluído)
-├── CNPJ ate 60000.xlsx      # Seu arquivo de produção (ignorado pelo git)
 ├── requirements.txt         # Dependências Python
 ├── README.md               # Este arquivo
 └── .gitignore              # Arquivos ignorados pelo git
@@ -78,7 +77,7 @@ python gerar_exemplo.py
 No arquivo `consultar_cnpj.py`, linha ~99:
 
 ```python
-time.sleep(3)  # Altere para o valor desejado em segundos
+time.sleep(20)  # Altere para o valor desejado em segundos
 ```
 
 ### Limitar número de CNPJs (para teste)
