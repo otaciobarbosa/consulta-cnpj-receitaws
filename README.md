@@ -13,6 +13,8 @@ Script Python para consultar CNPJs em massa na API ReceitaWS e salvar os resulta
   - Data de Abertura
   - Situação
   - Tipo (Matriz/Filial)
+  - CNAE Principal (código e descrição)
+  - CNAEs Secundários (códigos e descrições)
 
 ## 🚀 Instalação
 

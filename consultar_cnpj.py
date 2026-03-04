@@ -84,12 +84,21 @@ def main():
         dados = consultar_cnpj(cnpj)
         
         if dados:
+            # Extrair CNAE principal e secundários
+            atividade_principal = dados.get('atividade_principal', [])
+            cnae_principal = f"{atividade_principal[0].get('code', '')} - {atividade_principal[0].get('text', '')}" if atividade_principal else ''
+            
+            atividades_secundarias = dados.get('atividades_secundarias', [])
+            cnae_secundarios = '; '.join([f"{ativ.get('code', '')} - {ativ.get('text', '')}" for ativ in atividades_secundarias]) if atividades_secundarias else ''
+            
             # Extrair apenas as colunas solicitadas
             resultado = {
                 'cnpj': cnpj_raw,  # CNPJ original da planilha
                 'abertura': dados.get('abertura', ''),
                 'situacao': dados.get('situacao', ''),
-                'tipo': dados.get('tipo', '')
+                'tipo': dados.get('tipo', ''),
+                'cnae_principal': cnae_principal,
+                'cnae_secundarios': cnae_secundarios
             }
             resultados.append(resultado)
             print(f"  ✓ Consultado")
@@ -99,7 +108,9 @@ def main():
                 'cnpj': cnpj_raw,
                 'abertura': 'ERRO',
                 'situacao': 'ERRO',
-                'tipo': 'ERRO'
+                'tipo': 'ERRO',
+                'cnae_principal': 'ERRO',
+                'cnae_secundarios': 'ERRO'
             })
         
         # Delay entre requisições para evitar rate limit (3 segundos)
